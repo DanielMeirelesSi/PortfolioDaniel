@@ -145,7 +145,7 @@ export interface ProjectLocale {
 }
 
 export interface Project {
-  id: "kmcontrol" | "maisgrana" | "cinema";
+  id: "kmcontrol" | "maisgrana" | "cinema" | "atelie";
   title: string;
   tags: string[];
   repo: string;
@@ -167,6 +167,17 @@ export const projects: Project[] = [
     image: "/km-control.png",
     pt: { desc: "Sistema web para controle de veículos e abastecimentos, com dashboard de consumo, custo por km e histórico. Nasceu de uma necessidade real e já tem versão demo publicada." },
     en: { desc: "Web system for vehicle and fuel tracking, with a dashboard for consumption, cost per km and history. Born from a real need, with a published demo version." },
+  },
+  {
+    id: "atelie",
+    title: "Ateliê Biblioteca Aromática",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    repo: "https://github.com/DanielMeirelesSi/atelie-biblioteca-aromatica",
+    site: "https://www.ateliebibliotecaaromatica.com.br",
+    status: "done",
+    image: "/atelie.png",
+    pt: { desc: "Site institucional e catálogo virtual para uma marca artesanal, com layout mobile-first e pedidos encaminhados direto para o WhatsApp da loja." },
+    en: { desc: "Marketing site and online catalog for an artisanal brand, with a mobile-first layout and orders routed straight to the shop's WhatsApp." },
   },
   {
     id: "maisgrana",
