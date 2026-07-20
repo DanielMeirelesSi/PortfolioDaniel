@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLang } from "@/context/lang";
-import { projects, type Project } from "@/data/content";
+import { projects, categories, type Project, type CategoryId } from "@/data/content";
 import Reveal from "./Reveal";
 import Preview from "./Previews";
 import { GitHubIcon, ExternalIcon } from "./Icons";
@@ -27,9 +27,21 @@ function Cover({ project }: { project: Project }) {
 
 export default function Projects() {
   const { t, lang } = useLang();
+  const [active, setActive] = useState<CategoryId>("all");
   const [visible, setVisible] = useState(STEP);
-  const total = projects.length;
-  const shown = projects.slice(0, visible);
+
+  const catLabel = (id: CategoryId) => {
+    const found = categories.find((c) => c.id === id);
+    return found ? found[lang] : id;
+  };
+
+  const filtered = active === "all" ? projects : projects.filter((p) => p.categories.includes(active));
+  const shown = filtered.slice(0, visible);
+
+  const selectCat = (id: CategoryId) => {
+    setActive(id);
+    setVisible(STEP);
+  };
 
   return (
     <section className="projects" id="projetos">
@@ -41,6 +53,18 @@ export default function Projects() {
         <a className="cta" href="#contato">
           {t.contactCta} <span className="arr">↗</span>
         </a>
+      </div>
+
+      <div className="pfilter">
+        {categories.map((c) => (
+          <button
+            key={c.id}
+            className={`pfilter-btn ${active === c.id ? "active" : ""}`}
+            onClick={() => selectCat(c.id)}
+          >
+            {c[lang]}
+          </button>
+        ))}
       </div>
 
       <div className="pgrid">
@@ -55,6 +79,13 @@ export default function Projects() {
                 <Cover project={p} />
               </div>
               <div className="pcard-body">
+                <div className="pcat-row">
+                  {p.categories.map((cat) => (
+                    <span className="pcat" key={cat}>
+                      {catLabel(cat)}
+                    </span>
+                  ))}
+                </div>
                 <h3 className="pcard-title">{p.title}</h3>
                 <p className="pcard-desc">{c.desc}</p>
                 <div className="ptags">
@@ -70,9 +101,11 @@ export default function Projects() {
                       {ExternalIcon} {t.siteLabel}
                     </a>
                   )}
-                  <a className="pcard-link repo" href={p.repo} target="_blank" rel="noopener noreferrer">
-                    {GitHubIcon} {t.repoLabel}
-                  </a>
+                  {p.repo && (
+                    <a className="pcard-link repo" href={p.repo} target="_blank" rel="noopener noreferrer">
+                      {GitHubIcon} {t.repoLabel}
+                    </a>
+                  )}
                 </div>
               </div>
             </Reveal>
@@ -80,15 +113,15 @@ export default function Projects() {
         })}
       </div>
 
-      {total > STEP && (
+      {filtered.length > STEP && (
         <div className="showrow">
-          {visible < total && (
-            <button className="showbtn" onClick={() => setVisible((v) => Math.min(v + STEP, total))}>
+          {visible < filtered.length && (
+            <button className="showbtn" onClick={() => setVisible((v) => Math.min(v + STEP, filtered.length))}>
               {t.showMore}
             </button>
           )}
           {visible > STEP && (
-            <button className="showbtn ghost" onClick={() => setVisible((v) => Math.max(STEP, v - STEP))}>
+            <button className="showbtn ghost" onClick={() => setVisible(STEP)}>
               {t.showLess}
             </button>
           )}

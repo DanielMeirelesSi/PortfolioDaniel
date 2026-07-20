@@ -41,6 +41,49 @@ export default function Preview({ id }: { id: Project["id"] }) {
     );
   }
 
+if (id === "internal") {
+    return (
+      <div className="pv">
+        <div className="pv-top">
+          <span className="lbl">API · chamados</span>
+        </div>
+        <div className="pv-body">
+          <div className="pv-api">
+            <div className="pv-row">
+              <span className="pv-m g">GET</span> /api/tickets
+            </div>
+            <div className="pv-row">
+              <span className="pv-m">POST</span> /api/tickets
+            </div>
+            <div className="pv-row">
+              <span className="pv-m g">GET</span> /api/tickets/{"{id}"}
+            </div>
+            <div className="pv-row">
+              <span className="pv-m">PATCH</span> /api/tickets/{"{id}"}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "banqueiro") {
+    return (
+      <div className="pv">
+        <div className="pv-top">
+          <span className="lbl">Alocação de recursos</span>
+        </div>
+        <div className="pv-body">
+          <div className="pv-grid">
+            {["acc", "", "", "acc", "", "", "", "acc", "", "acc", "", "", "", "acc", "", "", "acc", "", "", "", "acc", "", "acc", ""].map((cell, i) => (
+              <div key={i} className={`pv-cell ${cell}`} />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="pv">
       <div className="pv-top">

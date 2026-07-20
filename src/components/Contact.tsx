@@ -3,12 +3,13 @@
 import { useLang } from "@/context/lang";
 import { socials } from "@/data/content";
 import Reveal from "./Reveal";
-import { MailIcon, LinkedInIcon } from "./Icons";
+import { MailIcon, LinkedInIcon, WhatsAppIcon } from "./Icons";
 
 export default function Contact() {
   const { t } = useLang();
 
   const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${socials.email}`;
+  const waHref = `https://wa.me/${socials.whatsapp}?text=${encodeURIComponent(t.contactWaMsg)}`;
 
   return (
     <section className="contact" id="contato">
@@ -27,7 +28,12 @@ export default function Contact() {
             {LinkedInIcon}
             <span>{t.contactLinkedinBtn}</span>
           </a>
+          <a className="cbtn cbtn-wa" href={waHref} target="_blank" rel="noopener noreferrer">
+            {WhatsAppIcon}
+            <span>{t.contactWhatsappBtn}</span>
+          </a>
         </div>
+        <p className="contact-note">{t.contactFreela}</p>
       </Reveal>
     </section>
   );

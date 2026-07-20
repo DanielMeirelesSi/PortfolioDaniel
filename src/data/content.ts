@@ -36,6 +36,9 @@ export interface UIStrings {
   contactLead: string;
   contactEmailBtn: string;
   contactLinkedinBtn: string;
+  contactWhatsappBtn: string;
+  contactWaMsg: string;
+  contactFreela: string;
 }
 
 export const ui: Record<Lang, UIStrings> = {
@@ -87,6 +90,9 @@ export const ui: Record<Lang, UIStrings> = {
     contactLead: "Vamos conversar? Me mande um email ou me chame no LinkedIn para nos falarmos melhor.",
     contactEmailBtn: "Enviar um email",
     contactLinkedinBtn: "Chamar no LinkedIn",
+    contactWhatsappBtn: "Chamar no WhatsApp",
+    contactWaMsg: "Olá Daniel, vi seu portfólio e gostaria de conversar",
+    contactFreela: "Também estou disponível para projetos freelancer.",
   },
   en: {
     nav: ["Work", "About", "Contact", "CV"],
@@ -136,18 +142,36 @@ export const ui: Record<Lang, UIStrings> = {
     contactLead: "Let's talk? Send me an email or reach out on LinkedIn and we can chat.",
     contactEmailBtn: "Send an email",
     contactLinkedinBtn: "Message on LinkedIn",
+    contactWhatsappBtn: "Message on WhatsApp",
+    contactWaMsg: "Hi Daniel, I saw your portfolio and would like to talk",
+    contactFreela: "I'm also available for freelance projects.",
   },
 };
 
+export type CategoryId = "all" | "web" | "backend" | "client";
+
+export interface Category {
+  id: CategoryId;
+  pt: string;
+  en: string;
+}
+
+export const categories: Category[] = [
+  { id: "all", pt: "Todos", en: "All" },
+  { id: "web", pt: "Sistemas web", en: "Web systems" },
+  { id: "backend", pt: "APIs e backend", en: "APIs & backend" },
+  { id: "client", pt: "Trabalhos para clientes", en: "Client work" },
+];
 
 export interface ProjectLocale {
   desc: string;
 }
 
 export interface Project {
-  id: "kmcontrol" | "maisgrana" | "cinema" | "atelie";
+  id: "kmcontrol" | "maisgrana" | "cinema" | "atelie" | "internal" | "banqueiro" | "mmoveis";
   title: string;
   tags: string[];
+  categories: Exclude<CategoryId, "all">[];
   repo: string;
   site?: string;
   status: "dev" | "done";
@@ -161,6 +185,7 @@ export const projects: Project[] = [
     id: "kmcontrol",
     title: "KM-Control",
     tags: ["C#", "ASP.NET Core", "EF Core", "MySQL"],
+    categories: ["web"],
     repo: "https://github.com/DanielMeirelesSi/KM_Control",
     site: "https://km-control-pi.vercel.app/",
     status: "dev",
@@ -172,6 +197,7 @@ export const projects: Project[] = [
     id: "atelie",
     title: "Ateliê Biblioteca Aromática",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    categories: ["client"],
     repo: "https://github.com/DanielMeirelesSi/atelie-biblioteca-aromatica",
     site: "https://www.ateliebibliotecaaromatica.com.br",
     status: "done",
@@ -180,9 +206,22 @@ export const projects: Project[] = [
     en: { desc: "Marketing site and online catalog for an artisanal brand, with a mobile-first layout and orders routed straight to the shop's WhatsApp." },
   },
   {
+    id: "mmoveis",
+    title: "M Móveis Rústicos",
+    tags: ["Nuvemshop", "E-commerce", "Design", "Configuração de Domínio"],
+    categories: ["client"],
+    repo: "",
+    site: "https://www.mmoveisrusticos.com.br",
+    status: "done",
+    image: "/mmoveis.png",
+    pt: { desc: "Criação e personalização completa de loja virtual para uma marca de móveis rústicos, incluindo design, layout, catálogo de produtos e configuração de domínio." },
+    en: { desc: "Full setup and customization of an online store for a rustic furniture brand, including design, layout, product catalog and domain configuration." },
+  },
+  {
     id: "maisgrana",
     title: "+Grana",
     tags: ["NestJS", "React", "MongoDB", "JWT", "Docker"],
+    categories: ["web"],
     repo: "https://github.com/DanielMeirelesSi/MaisGrana",
     status: "dev",
     image: "/mais-grana.png",
@@ -193,14 +232,36 @@ export const projects: Project[] = [
     id: "cinema",
     title: "CinemaTicketsAPI",
     tags: ["C#", "ASP.NET Core", "REST", "Swagger"],
+    categories: ["backend"],
     repo: "https://github.com/DanielMeirelesSi/CinemaTicketsAPI",
     status: "done",
     image: "/cinema-tickets.png",
     pt: { desc: "API REST em C# para venda de ingressos de cinema, com controle de sessões e assentos, prevenção de venda duplicada e controle de concorrência com lock." },
     en: { desc: "REST API in C# for cinema ticket sales, with session and seat control, duplicate-sale prevention and lock-based concurrency control." },
   },
+  {
+    id: "internal",
+    title: "InternalTicketsAPI",
+    tags: ["Node.js", "Express", "REST"],
+    categories: ["backend"],
+    repo: "https://github.com/DanielMeirelesSi/InternalTicketsAPI",
+    status: "done",
+    image: "/tickets.png",
+    pt: { desc: "API para controle de chamados internos entre setores, desenvolvida com Node.js e Express, com rotas para abertura, acompanhamento e resolução de chamados." },
+    en: { desc: "API for managing internal support tickets between departments, built with Node.js and Express, with routes to open, track and resolve tickets." },
+  },
+  {
+    id: "banqueiro",
+    title: "Algoritmo do Banqueiro",
+    tags: ["C#", "Sistemas Operacionais", "Algoritmos"],
+    categories: ["backend"],
+    repo: "https://github.com/DanielMeirelesSi/SO-T1-Algoritmo-do-Banqueiro",
+    status: "done",
+    image: "/banqueiro.png",
+    pt: { desc: "Implementação em C# do Algoritmo do Banqueiro, de Sistemas Operacionais, para alocação segura de recursos e prevenção de deadlocks." },
+    en: { desc: "C# implementation of the Banker's Algorithm from Operating Systems, for safe resource allocation and deadlock prevention." },
+  },
 ];
-
 
 export interface Tech {
   n: string;
@@ -246,5 +307,6 @@ export const socials = {
   githubLabel: "github.com/DanielMeirelesSi",
   linkedin: "https://www.linkedin.com/in/daniel-meireles-343821354",
   linkedinLabel: "linkedin.com/in/daniel-meireles",
+  whatsapp: "5531997111572",
   cv: "/cv-daniel-meireles.pdf",
 };
