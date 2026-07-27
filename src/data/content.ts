@@ -148,7 +148,7 @@ export const ui: Record<Lang, UIStrings> = {
   },
 };
 
-export type CategoryId = "all" | "web" | "backend" | "client";
+export type CategoryId = "all" | "web" | "backend" | "client" | "ai";
 
 export interface Category {
   id: CategoryId;
@@ -161,6 +161,7 @@ export const categories: Category[] = [
   { id: "web", pt: "Sistemas web", en: "Web systems" },
   { id: "backend", pt: "APIs e backend", en: "APIs & backend" },
   { id: "client", pt: "Trabalhos para clientes", en: "Client work" },
+  { id: "ai", pt: "Agentes de IA", en: "AI agents" },
 ];
 
 export interface ProjectLocale {
@@ -168,7 +169,7 @@ export interface ProjectLocale {
 }
 
 export interface Project {
-  id: "kmcontrol" | "maisgrana" | "cinema" | "atelie" | "internal" | "banqueiro" | "mmoveis";
+  id: "kmcontrol" | "maisgrana" | "cinema" | "atelie" | "internal" | "banqueiro" | "mmoveis" | "emailagent";
   title: string;
   tags: string[];
   categories: Exclude<CategoryId, "all">[];
@@ -181,6 +182,28 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    id: "emailagent",
+    title: "Assistente de Email no WhatsApp",
+    tags: ["Node.js", "OpenAI", "Gmail API", "WhatsApp API"],
+    categories: ["ai"],
+    repo: "https://github.com/DanielMeirelesSi/Gmail_Agent_WhatsApp",
+    status: "done",
+    /*image: "/email-agent.png",*/
+    pt: { desc: "Agente pessoal que lê e resume meus emails do Gmail e me avisa por comandos no WhatsApp, integrando a API do Gmail com OAuth2, a OpenAI e a WhatsApp Cloud API." },
+    en: { desc: "Personal agent that reads and summarizes my Gmail emails and notifies me through WhatsApp commands, integrating the Gmail API with OAuth2, OpenAI and the WhatsApp Cloud API." },
+  },
+  {
+    id: "maisgrana",
+    title: "+Grana",
+    tags: ["NestJS", "React", "MongoDB", "JWT", "Docker"],
+    categories: ["web"],
+    repo: "https://github.com/DanielMeirelesSi/MaisGrana",
+    status: "dev",
+    image: "/mais-grana.png",
+    pt: { desc: "Sistema de gestão financeira com dashboard, metas e controle de gastos. Backend em NestJS com autenticação JWT, isolamento de dados por usuário, MongoDB e execução em Docker Compose." },
+    en: { desc: "Financial management system with dashboard, goals and expense tracking. NestJS backend with JWT auth, per-user data isolation, MongoDB and Docker Compose." },
+  },
   {
     id: "kmcontrol",
     title: "KM-Control",
@@ -216,17 +239,6 @@ export const projects: Project[] = [
     image: "/mmoveis.png",
     pt: { desc: "Criação e personalização completa de loja virtual para uma marca de móveis rústicos, incluindo design, layout, catálogo de produtos e configuração de domínio." },
     en: { desc: "Full setup and customization of an online store for a rustic furniture brand, including design, layout, product catalog and domain configuration." },
-  },
-  {
-    id: "maisgrana",
-    title: "+Grana",
-    tags: ["NestJS", "React", "MongoDB", "JWT", "Docker"],
-    categories: ["web"],
-    repo: "https://github.com/DanielMeirelesSi/MaisGrana",
-    status: "dev",
-    image: "/mais-grana.png",
-    pt: { desc: "Sistema de gestão financeira com dashboard, metas e controle de gastos. Backend em NestJS com autenticação JWT, isolamento de dados por usuário, MongoDB e execução em Docker Compose." },
-    en: { desc: "Financial management system with dashboard, goals and expense tracking. NestJS backend with JWT auth, per-user data isolation, MongoDB and Docker Compose." },
   },
   {
     id: "cinema",

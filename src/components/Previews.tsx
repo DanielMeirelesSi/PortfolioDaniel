@@ -84,6 +84,24 @@ if (id === "internal") {
     );
   }
 
+  if (id === "emailagent") {
+    return (
+      <div className="pv">
+        <div className="pv-top">
+          <span className="lbl">Agente · WhatsApp</span>
+        </div>
+        <div className="pv-body">
+          <div className="pv-chat">
+            <div className="pv-bub inb">resumo dos emails de hoje</div>
+            <div className="pv-bub out">3 novos: 1 do banco, 2 do trabalho</div>
+            <div className="pv-bub inb">algum urgente?</div>
+            <div className="pv-bub out">sim, reunião remarcada às 15h</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="pv">
       <div className="pv-top">
