@@ -18,10 +18,15 @@ export default function Nav() {
   ];
 
   useEffect(() => {
-    const close = () => setOpen(false);
+    if (!open) return;
+    const close = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest(".burger")) return;
+      setOpen(false);
+    };
     document.addEventListener("click", close);
     return () => document.removeEventListener("click", close);
-  }, []);
+  }, [open]);
 
   return (
     <>
@@ -44,10 +49,7 @@ export default function Nav() {
             <button
               className="burger"
               aria-label="Menu"
-              onClick={(e) => {
-                e.stopPropagation();
-                setOpen((o) => !o);
-              }}
+              onClick={() => setOpen((o) => !o)}
             >
               <span />
             </button>
