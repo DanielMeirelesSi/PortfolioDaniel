@@ -7,14 +7,14 @@ import ThemeToggle from "./ThemeToggle";
 import LangToggle from "./LangToggle";
 
 export default function Nav() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [open, setOpen] = useState(false);
 
   const links = [
     { label: t.nav[0], href: "#projetos" },
     { label: t.nav[1], href: "#sobre" },
     { label: t.nav[2], href: "#contato" },
-    { label: t.nav[3], href: socials.cv, download: true },
+    { label: t.nav[3], href: socials.cv[lang], download: true },
   ];
 
   useEffect(() => {
@@ -46,11 +46,7 @@ export default function Nav() {
           <div className="ctrls">
             <ThemeToggle />
             <LangToggle />
-            <button
-              className="burger"
-              aria-label="Menu"
-              onClick={() => setOpen((o) => !o)}
-            >
+            <button className="burger" aria-label="Menu" onClick={() => setOpen((o) => !o)}>
               <span />
             </button>
           </div>

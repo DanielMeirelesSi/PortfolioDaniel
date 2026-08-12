@@ -320,5 +320,8 @@ export const socials = {
   linkedin: "https://www.linkedin.com/in/daniel-meireles-343821354",
   linkedinLabel: "linkedin.com/in/daniel-meireles",
   whatsapp: "5531997111572",
-  cv: "/cv-daniel-meireles.pdf",
+  cv: {
+    pt: "/DanielMeireles-cv.pdf",
+    en: "/DanielMeireles-cv-EN.pdf",
+  },
 };
