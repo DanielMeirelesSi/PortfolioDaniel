@@ -169,7 +169,7 @@ export interface ProjectLocale {
 }
 
 export interface Project {
-  id: "kmcontrol" | "maisgrana" | "cinema" | "atelie" | "internal" | "banqueiro" | "mmoveis" | "emailagent";
+  id: "kmcontrol" | "maisgrana" | "cinema" | "atelie" | "internal" | "banqueiro" | "mmoveis" | "emailagent" | "mediadownloader" | "serviceorder" | "estacionamento";
   title: string;
   tags: string[];
   categories: Exclude<CategoryId, "all">[];
@@ -182,6 +182,17 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+    {
+    id: "mediadownloader",
+    title: "Media Downloader",
+    tags: ["React", "TypeScript", "Python", "FastAPI", "Docker"],
+    categories: ["web"],
+    repo: "https://github.com/DanielMeirelesSi/Media-downloader",
+    status: "done",
+    image: "/media-downloader.png",
+    pt: { desc: "Aplicação full-stack para análise e download de mídias públicas, com escolha de qualidade e extração de áudio em MP3. Front em React e TypeScript, API em FastAPI com yt-dlp e FFmpeg, tudo em Docker." },
+    en: { desc: "Full-stack app to analyze and download public media, with quality selection and MP3 audio extraction. React and TypeScript front-end, FastAPI backend with yt-dlp and FFmpeg, all in Docker." },
+  },
   {
     id: "emailagent",
     title: "Assistente de Email no WhatsApp",
@@ -193,6 +204,16 @@ export const projects: Project[] = [
     pt: { desc: "Agente pessoal que lê e resume meus emails do Gmail e me avisa por comandos no WhatsApp, integrando a API do Gmail com OAuth2, a OpenAI e a WhatsApp Cloud API." },
     en: { desc: "Personal agent that reads and summarizes my Gmail emails and notifies me through WhatsApp commands, integrating the Gmail API with OAuth2, OpenAI and the WhatsApp Cloud API." },
   },
+    {
+    id: "serviceorder",
+    title: "ServiceOrder API",
+    tags: ["Java", "Spring Boot", "JPA", "PostgreSQL", "Flyway"],
+    categories: ["backend"],
+    repo: "https://github.com/DanielMeirelesSi/ServiceOrder",
+    status: "dev",
+    pt: { desc: "API de ordens de serviço em Java com Spring Boot, usando Spring Data JPA, PostgreSQL, migrações com Flyway e validação de dados." },
+    en: { desc: "Service order API in Java with Spring Boot, using Spring Data JPA, PostgreSQL, Flyway migrations and data validation." },
+  },
   {
     id: "maisgrana",
     title: "+Grana",
@@ -203,6 +224,16 @@ export const projects: Project[] = [
     image: "/mais-grana.png",
     pt: { desc: "Sistema de gestão financeira com dashboard, metas e controle de gastos. Backend em NestJS com autenticação JWT, isolamento de dados por usuário, MongoDB e execução em Docker Compose." },
     en: { desc: "Financial management system with dashboard, goals and expense tracking. NestJS backend with JWT auth, per-user data isolation, MongoDB and Docker Compose." },
+  },
+    {
+    id: "estacionamento",
+    title: "Estacionamento Java",
+    tags: ["Java", "OpenJDK", "POO"],
+    categories: ["backend"],
+    repo: "https://github.com/DanielMeirelesSi/Estacionamento-Test",
+    status: "done",
+    pt: { desc: "Aplicação de terminal em Java para controle de estacionamento, com registro de entradas e saídas, cálculo de permanência e controle de faturamento." },
+    en: { desc: "Java terminal application for parking control, with vehicle check-in and check-out, stay-time pricing and revenue tracking." },
   },
   {
     id: "kmcontrol",
@@ -288,18 +319,24 @@ export const stack: Tech[][] = [
   [
     { n: "C#", url: ICON("csharp") },
     { n: "ASP.NET Core", url: ICON("dotnetcore") },
+    { n: "Java", url: ICON("java") },
+    { n: "Spring Boot", url: ICON("spring") },
     { n: "Node.js", url: ICON("nodejs") },
     { n: "NestJS", url: ICON("nestjs") },
+    { n: "Python", url: ICON("python") },
+    { n: "FastAPI", url: ICON("fastapi") },
   ],
   [
     { n: "React", url: ICON("react") },
     { n: "JavaScript", url: ICON("javascript") },
+    { n: "TypeScript", url: ICON("typescript") },
     { n: "HTML5", url: ICON("html5") },
     { n: "CSS3", url: ICON("css3") },
     { n: "Bootstrap", url: ICON("bootstrap") },
   ],
   [
     { n: "MySQL", url: ICON("mysql") },
+    { n: "PostgreSQL", url: ICON("postgresql") },
     { n: "MongoDB", url: ICON("mongodb") },
     { n: "Docker", url: ICON("docker") },
     { n: "NGINX", url: ICON("nginx") },

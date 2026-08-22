@@ -102,6 +102,50 @@ if (id === "internal") {
     );
   }
 
+    if (id === "serviceorder") {
+    return (
+      <div className="pv">
+        <div className="pv-top">
+          <span className="lbl">API · ordens de serviço</span>
+        </div>
+        <div className="pv-body">
+          <div className="pv-api">
+            <div className="pv-row">
+              <span className="pv-m g">GET</span> /api/customers
+            </div>
+            <div className="pv-row">
+              <span className="pv-m">POST</span> /api/customers
+            </div>
+            <div className="pv-row">
+              <span className="pv-m g">GET</span> /api/orders
+            </div>
+            <div className="pv-row">
+              <span className="pv-m">POST</span> /api/orders
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "estacionamento") {
+    return (
+      <div className="pv">
+        <div className="pv-top">
+          <span className="lbl">Terminal Java</span>
+        </div>
+        <div className="pv-body">
+          <div className="pv-chat">
+            <div className="pv-bub inb">1 - Registrar entrada</div>
+            <div className="pv-bub inb">2 - Registrar saída</div>
+            <div className="pv-bub out">Placa ABC1D23 · 1h20 · R$ 10,00</div>
+            <div className="pv-bub inb">Faturamento: R$ 45,00</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="pv">
       <div className="pv-top">
