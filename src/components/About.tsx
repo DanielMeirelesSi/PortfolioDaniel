@@ -48,7 +48,7 @@ export default function About() {
 
         <Reveal className="about-media">
           <div className="about-photo">
-            <img src="/foto-perfil.jpeg" alt="Daniel Meireles" />
+            <img src="/new-profile-photo2.jpeg" alt="Daniel Meireles" />
           </div>
           <div className="skills-rot">
             <span className="skills-cap">{t.skillsCap}</span>
