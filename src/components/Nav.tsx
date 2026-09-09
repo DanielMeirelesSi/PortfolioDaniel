@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useLang } from "@/context/lang";
 import { socials } from "@/data/content";
+import SpotifyNavStatus from "./SpotifyNavStatus";
 import ThemeToggle from "./ThemeToggle";
 import LangToggle from "./LangToggle";
 
@@ -36,6 +37,7 @@ export default function Nav() {
           Daniel Meireles
         </span>
         <div className="navright">
+          <SpotifyNavStatus />
           <div className="links">
             {links.map((l, i) => (
               <a key={i} href={l.href} className={i === 0 ? "on" : ""} {...(l.download ? { download: true } : {})}>

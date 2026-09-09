@@ -33,12 +33,16 @@ export interface UIStrings {
   langName: string;
   langLevel: string;
   contactTitle: string;
+  spotifySectionTitle: string;
   contactLead: string;
   contactEmailBtn: string;
   contactLinkedinBtn: string;
   contactWhatsappBtn: string;
   contactWaMsg: string;
   contactFreela: string;
+  spotifyPlaying: string;
+  spotifyRecent: string;
+  spotifyOpen: string;
 }
 
 export const ui: Record<Lang, UIStrings> = {
@@ -87,12 +91,16 @@ export const ui: Record<Lang, UIStrings> = {
     langName: "Inglês",
     langLevel: "Leitura e compreensão avançadas, conversação intermediária",
     contactTitle: "Contato",
+    spotifySectionTitle: "Músicas que tenho escutado ultimamente",
     contactLead: "Vamos conversar? Me mande um email ou me chame no LinkedIn para nos falarmos melhor.",
     contactEmailBtn: "Enviar um email",
     contactLinkedinBtn: "Chamar no LinkedIn",
     contactWhatsappBtn: "Chamar no WhatsApp",
     contactWaMsg: "Olá Daniel, vi seu portfólio e gostaria de conversar",
     contactFreela: "Também estou disponível para projetos freelancer.",
+    spotifyPlaying: "Ouvindo agora",
+    spotifyRecent: "Ouvi recentemente",
+    spotifyOpen: "Abrir no Spotify",
   },
   en: {
     nav: ["Work", "About", "Contact", "CV"],
@@ -139,12 +147,16 @@ export const ui: Record<Lang, UIStrings> = {
     langName: "English",
     langLevel: "Advanced reading and comprehension, intermediate speaking",
     contactTitle: "Contact",
+    spotifySectionTitle: "Music I've been listening to lately",
     contactLead: "Let's talk? Send me an email or reach out on LinkedIn and we can chat.",
     contactEmailBtn: "Send an email",
     contactLinkedinBtn: "Message on LinkedIn",
     contactWhatsappBtn: "Message on WhatsApp",
     contactWaMsg: "Hi Daniel, I saw your portfolio and would like to talk",
     contactFreela: "I'm also available for freelance projects.",
+    spotifyPlaying: "Listening now",
+    spotifyRecent: "Recently played",
+    spotifyOpen: "Open on Spotify",
   },
 };
 
